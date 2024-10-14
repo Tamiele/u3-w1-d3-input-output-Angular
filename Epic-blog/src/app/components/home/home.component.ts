@@ -51,26 +51,5 @@ export class HomeComponent implements OnInit {
     this.showForm = !this.showForm;
   }
 
-  @Output() onCreateRequest = new EventEmitter<Post>();
-
-  newPost: Post = {
-    active: false,
-    body: '',
-    id: 0,
-    tags: [],
-    title: '',
-    userId: 0,
-  };
-
-  save() {
-    this.onCreateRequest.emit(this.newPost);
-    this.newPost = {
-      active: false,
-      body: '',
-      id: 0,
-      tags: [],
-      title: '',
-      userId: 0,
-    };
-  }
+  save() {}
 }
