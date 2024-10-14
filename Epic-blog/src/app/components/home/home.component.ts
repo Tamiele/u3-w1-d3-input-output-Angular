@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Post } from '../../interfaces/post';
 import { iJSONresponse } from '../../interfaces/i-jsonresponse';
 
@@ -49,5 +49,28 @@ export class HomeComponent implements OnInit {
   }
   toggleForm() {
     this.showForm = !this.showForm;
+  }
+
+  @Output() onCreateRequest = new EventEmitter<Post>();
+
+  newPost: Post = {
+    active: false,
+    body: '',
+    id: 0,
+    tags: [],
+    title: '',
+    userId: 0,
+  };
+
+  save() {
+    this.onCreateRequest.emit(this.newPost);
+    this.newPost = {
+      active: false,
+      body: '',
+      id: 0,
+      tags: [],
+      title: '',
+      userId: 0,
+    };
   }
 }
