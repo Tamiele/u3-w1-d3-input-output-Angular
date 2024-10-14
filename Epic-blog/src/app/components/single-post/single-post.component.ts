@@ -8,4 +8,5 @@ import { Post } from '../../interfaces/post';
 })
 export class SinglePostComponent {
   @Input() post!: Post;
+  @Input() arrayRandomPost!: Post;
 }
